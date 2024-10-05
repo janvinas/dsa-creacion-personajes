@@ -9,19 +9,38 @@ public class PersonajeBuilder{
     }
 
     final ClasePersonaje tipo;
-    int fuerza;
-    int inteligencia;
-    int sabiduria;
-    int destreza;
-    int constitucion;
-    int carisma;
+    private int fuerza;
+    private int inteligencia;
+    private int sabiduria;
+    private int destreza;
+    private int constitucion;
+    private int carisma;
+
+    public void setFuerza(int fuerza) {
+        this.fuerza = fuerza;
+    }
+    public void setInteligencia(int inteligencia) {
+        this.inteligencia = inteligencia;
+    }
+    public void setSabiduria(int sabiduria) {
+        this.sabiduria = sabiduria;
+    }
+    public void setDestreza(int destreza) {
+        this.destreza = destreza;
+    }
+    public void setConstitution(int constitucion) {
+        this.constitucion = constitucion;
+    }
+    public void setCarisma(int carisma) {
+        this.carisma = carisma;
+    }
 
     // retorna la suma de llençar [numDice] daus de [sides] cares
     private int throwDice(int numDice, int sides){
         int res = 0;
         Random rand = new Random();
         for(int i = 0; i < numDice; i++){
-            res += rand.nextInt(1, sides);
+            res += rand.nextInt(1, sides + 1);
         }
         return res;
     }
