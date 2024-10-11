@@ -1,5 +1,6 @@
 import characters.*;
-
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class PersonajeBuilder{
@@ -15,6 +16,10 @@ public class PersonajeBuilder{
     private int destreza;
     private int constitucion;
     private int carisma;
+
+    private List<Integer> tiradasDeSalvacion;
+    private List<String> habilidadesDeClase;
+    private List<String> grimorio;
 
     public void setFuerza(int fuerza) {
         this.fuerza = fuerza;
@@ -53,6 +58,23 @@ public class PersonajeBuilder{
         this.constitucion = throwDice(3, 6);
         this.carisma = throwDice(3, 6);
     }
+    public ClasePersonaje getTipo() {
+        return tipo;
+    }
+
+    // Añadir exenciones
+    public void agregarTiradaDeSalvacion(int tirada) {
+        tiradasDeSalvacion.add(tirada);
+    }
+
+    // Añadir competencias profesionales
+    public void agregarHabilidadDeClase(String habilidad) {
+        habilidadesDeClase.add(habilidad);
+    }
+    // Añadir hechizos al Grimorio
+    public void agregarHechizo(String hechizo) {
+        grimorio.add(hechizo);
+    }
 
     private boolean verifyRandomization(){
         switch(this.tipo){
@@ -82,6 +104,12 @@ public class PersonajeBuilder{
     }
 
     public Personaje build(){
+
+        //inicializar lo cuando crea el personaje
+        this.tiradasDeSalvacion = new ArrayList<>();
+        this.habilidadesDeClase = new ArrayList<>();
+        this.grimorio = new ArrayList<>();
+
         switch(this.tipo){
             case Clerigo:
                 return new Clerigo(fuerza, inteligencia, sabiduria, destreza, constitucion, carisma);
