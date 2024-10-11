@@ -28,4 +28,27 @@ public abstract class Personaje {
         System.out.println("Carisma: " + this.carisma);
     }
 
+    public int getFuerza() {
+        return fuerza;
+    }
+
+    public int getInteligencia() {
+        return inteligencia;
+    }
+
+    public int getSabiduria() {
+        return sabiduria;
+    }
+
+    public int getDestreza() {
+        return destreza;
+    }
+
+    public int getConstitucion() {
+        return constitucion;
+    }
+
+    public int getCarisma() {
+        return carisma;
+    }
 }
